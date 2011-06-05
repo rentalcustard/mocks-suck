@@ -1,3 +1,6 @@
+!SLIDE 
+# Matahari unsucks your mocks #
+
 !SLIDE center
 # Mocks suck #
 
@@ -49,7 +52,7 @@
       helper.message
     end
 
-!SLIDE bullets
+!SLIDE
 # Mocks are paranoid #
     @@@ruby
     #After
@@ -57,61 +60,8 @@
       helper.message unless helper.inaccessible?
     end
 
-* Now our test fails - "Mock helper received unexpected message 'inaccessible?'"
+* Now our test fails - "Mock helper received unexpected message 'inacessible?'"
  
-!SLIDE bullets incremental
-# Test spies (in Java!) #
-
-* Mockito implements test spies for Java
-* Released in 2008
-* Better than anything we have in Ruby
-* Has a terrible name
-
-!SLIDE
-# Test spies (in Java!) #
-
-    @@@java
-    public void testStuff() {
-      List mockedList = mock(List.class);
-
-      mockedList.add("one");
-
-      verify(mockedList).add("one"); 
-    }
-
-!SLIDE
-# RR #
-
-    @@@ruby
-    helper = Object.new
-    stub(helper).foo
-    
-    helper.foo(1)
-
-    helper.should have_received.foo(1)
-
-
-!SLIDE
-# RR #
-
-    @@@ruby
-    helper = Object.new
-    stub(helper).foo #Without this line...
-    
-    helper.foo(1) #...This one fails
-
-    helper.should have_received.foo(1)
-
-!SLIDE
-# Matahari #
-
-    @@@ruby
-    helper = spy(:helper)
-
-    helper.foo(1)
-    helper.bar
-
-    helper.should have_received.foo(1)
 
 !SLIDE bullets
 # Thanks #
