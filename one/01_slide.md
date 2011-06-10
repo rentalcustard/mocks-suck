@@ -72,11 +72,11 @@
 
     @@@java
     public void testStuff() {
-      List mockedList = mock(List.class);
+      Helper helperSpy = mock(Helper.class);
 
-      mockedList.add("one");
+      helperSpy.message();
 
-      verify(mockedList).add("one"); 
+      verify(helperSpy).message();
     }
 
 !SLIDE
@@ -84,11 +84,11 @@
 
     @@@ruby
     helper = Object.new
-    stub(helper).foo
+    stub(helper).message
     
-    helper.foo(1)
+    helper.message(1)
 
-    helper.should have_received.foo(1)
+    helper.should have_received.message(1)
 
 
 !SLIDE
@@ -96,11 +96,11 @@
 
     @@@ruby
     helper = Object.new
-    stub(helper).foo #Without this line...
+    stub(helper).message #Without this line...
     
-    helper.foo(1) #...This one fails
+    helper.message(1) #...This one fails
 
-    helper.should have_received.foo(1)
+    helper.should have_received.message(1)
 
 !SLIDE
 # Matahari #
@@ -108,10 +108,9 @@
     @@@ruby
     helper = spy(:helper)
 
-    helper.foo(1)
-    helper.bar
+    helper.message(1)
 
-    helper.should have_received.foo(1)
+    helper.should have_received.message(1)
 
 !SLIDE bullets
 # Thanks #
