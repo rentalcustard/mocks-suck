@@ -11,9 +11,9 @@
 
     @@@java
     public void testStuff() {
-      Helper helperSpy = mock(Helper.class);
+      Helper helper = mock(Helper.class);
 
-      helperSpy.message();
+      helper.message();
 
-      verify(helperSpy).message();
+      verify(helper).message();
     }
